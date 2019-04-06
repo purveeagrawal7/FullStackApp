@@ -1,0 +1,35 @@
+<!-- <p>
+  todo works!
+</p> -->
+<!--#frm-to access all the values of this particular form-->
+<form #frm="ngForm" class="form-inline" (ngSubmit)="addItem(frm)">
+  <div class="form-group">
+
+    <input type="text" class="form-control"
+    name="itemName"
+    ngModel/>
+  </div>
+<button type="submit" name="button" class="btn btn-success">Add</button>
+</form>
+
+<hr>
+<div class="row">
+  <div *ngFor="let item of itemList" class="">
+    <div class="col-md-2">
+      <input
+      type="checkbox"
+      [checked] = "item.itemDone"
+      (click)="updateCheckBox(item)"
+      >
+    </div>
+    <div class="col-md-6">
+      {{item.itemName}}
+    </div>
+    <div class="col-md-4">
+      <button type="button" name="button" class="btn btn-danger" (click)="deleteItem(item._id)">X</button>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>
+</div>
